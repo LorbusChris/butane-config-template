@@ -1,0 +1,9 @@
+storage:
+  files:
+    # use nano as default editor
+    - path: /etc/profile.d/nano.sh
+      overwrite: true
+      contents:
+        inline: |
+          #/bin/sh
+          export EDITOR=nano

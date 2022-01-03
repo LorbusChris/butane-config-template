@@ -1,0 +1,15 @@
+storage:
+  files:
+    - path: /etc/zincati/config.d/55-updates-strategy.toml
+      contents:
+        inline: |
+          [identity]
+          rollout_wariness = 0.5
+          
+          [updates]
+          strategy = "periodic"
+          
+          [[updates.periodic.window]]
+          days = [ "Wed" ]
+          start_time = "04:00"
+          length_minutes = 60
