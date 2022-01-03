@@ -18,10 +18,10 @@ butane: generate-butane
 
 generate-ignition: generate-butane
 	podman run --rm \
-        --security-opt label=disable \
-        --volume ${PWD}:/pwd \
+		--security-opt label=disable \
+		--volume ${PWD}:/pwd \
 		--workdir /pwd \
-        quay.io/coreos/butane:release \
+		quay.io/coreos/butane:release \
 		--strict --files-dir files_generated --output config.ign \
 		config.bu
 
@@ -29,12 +29,12 @@ ignition: generate-ignition
 
 disk: ignition
 	sudo podman run --rm --privileged \
-    	--volume /dev:/dev \
+		--volume /dev:/dev \
 		--volume /run/udev:/run/udev \
 		--volume ${PWD}:/data \
 		--workdir /data \
-    	quay.io/coreos/coreos-installer:release \
-    	install --stream=${OS_STREAM} --architecture=${OS_ARCH} --ignition-file config.ign \
+		quay.io/coreos/coreos-installer:release \
+		install --stream=${OS_STREAM} --architecture=${OS_ARCH} --ignition-file config.ign \
 		${OS_DISK}
 	sleep 1
 
