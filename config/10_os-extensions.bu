@@ -74,7 +74,7 @@ storage:
           gpgcheck=1
           repo_gpgcheck=0
           gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-$releasever
-    - path: /etc/yum.repos.de/rpmfusion-nonfree-tainted.repo
+    - path: /etc/yum.repos.d/rpmfusion-nonfree-tainted.repo
       mode: 0644
       contents:
         inline: |
