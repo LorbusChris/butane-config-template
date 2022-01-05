@@ -1,0 +1,4 @@
+storage:
+  trees:
+    - local: files
+      path: /
